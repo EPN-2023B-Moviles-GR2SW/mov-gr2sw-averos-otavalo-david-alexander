@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "831562573430",
-    "project_id": "b2023-gr2sw-daao",
-    "storage_bucket": "b2023-gr2sw-daao.appspot.com"
+    "project_number": "860274257118",
+    "project_id": "b2023-gr2sw-daao-b3dda",
+    "storage_bucket": "b2023-gr2sw-daao-b3dda.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:831562573430:android:6a0869a96be92078a9a157",
+        "mobilesdk_app_id": "1:860274257118:android:a0d5db1f3783cbcea8a64f",
         "android_client_info": {
           "package_name": "com.example.b2023gr2sw"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDH1d80GqlB7QozaxS8qctqyS-XySdZE2o"
+          "current_key": "AIzaSyD3h9ZNzqrz6UNKcVHhqe7aoKs5RZZbRls"
         }
       ],
       "services": {
