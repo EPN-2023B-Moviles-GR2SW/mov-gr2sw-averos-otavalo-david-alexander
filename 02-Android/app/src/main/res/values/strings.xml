@@ -2,4 +2,9 @@
     <string name="app_name">B2023gr2sw</string>
     <string name="title_activity_aresources">AResources</string>
     <string name="saludo">Hola mi gente de Puerto Rico</string>
+    <string-array name="string_array_opciones_dialogo">
+        <item>Lunes</item>
+        <item>Martes</item>
+        <item>Miercoles</item>
+    </string-array>
 </resources>
