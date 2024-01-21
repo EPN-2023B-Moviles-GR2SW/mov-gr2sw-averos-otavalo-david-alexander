@@ -29,7 +29,7 @@ fun main(){
 fun menuClientes(scanner: Scanner) {
     while (true) {
         println("\nMenú Clientes:")
-        println("1. Crear Cliente")
+        println("1. Crear Cliente")ejemplo
         println("2. Mostrar Todos los Clientes")
         println("3. Buscar Cliente por Cédula")
         println("4. Actualizar Cliente")

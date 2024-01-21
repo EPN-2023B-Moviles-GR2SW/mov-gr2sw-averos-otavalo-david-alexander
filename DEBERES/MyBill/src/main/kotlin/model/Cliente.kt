@@ -7,6 +7,7 @@ data class Cliente (
     var altura: Double,
     val fechaCumpleanos: LocalDate,
     var sexo: Boolean
+    var FacturaLista :
 ){
 companion object{
     private val gestorArchivos =
