@@ -12,9 +12,9 @@ data class Cliente (
 ){
     override fun toString(): String {
         if(sexo){
-            return "Cédula = $cedula\nNúmero de Afiliado = $numeroAfiliado\nAltura = $altura\nFecha de Cumpleaños = $fechaCumpleanos\nSexo = Masculino"
+            return "Cédula = $cedula\nNúmero de Afiliado = $numeroAfiliado\nAltura = $altura\nFecha de Cumpleaños = $fechaCumpleanos\nSexo = Masculino\n"
         }else{
-            return "Cédula = $cedula\nNúmero de Afiliado = $numeroAfiliado\nAltura = $altura\nFecha de Cumpleaños = $fechaCumpleanos\nSexo = Femenino"
+            return "Cédula = $cedula\nNúmero de Afiliado = $numeroAfiliado\nAltura = $altura\nFecha de Cumpleaños = $fechaCumpleanos\nSexo = Femenino\n"
         }
     }
 }

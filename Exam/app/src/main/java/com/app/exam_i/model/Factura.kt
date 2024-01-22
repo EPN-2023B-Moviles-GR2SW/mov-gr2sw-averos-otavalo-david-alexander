@@ -11,8 +11,8 @@ data class Factura(
 ){
     override fun toString(): String {
         if (esPagada)
-            return "Cédula Cliente = $cedulaCliente\nFecha de Emisión = $fechaEmision\n# de Factura = $numeroFactura\nPagada = Si esta pagada\nTotal A Pagar = $totalAPagar$"
+            return "Cédula Cliente = $cedulaCliente\nFecha de Emisión = $fechaEmision\n# de Factura = $numeroFactura\nPagada = Si esta pagada\nTotal A Pagar = $totalAPagar$\n"
         else
-            return "Cédula Cliente = $cedulaCliente\nFecha de Emisión = $fechaEmision\n# de Factura = $numeroFactura\nPagada = No esta pagada\nTotal A Pagar = $totalAPagar$"
+            return "Cédula Cliente = $cedulaCliente\nFecha de Emisión = $fechaEmision\n# de Factura = $numeroFactura\nPagada = No esta pagada\nTotal A Pagar = $totalAPagar$\n"
     }
 }

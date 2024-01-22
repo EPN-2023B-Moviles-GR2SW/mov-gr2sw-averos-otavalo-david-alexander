@@ -10,7 +10,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 
-
 class MainActivity : AppCompatActivity() {
     val callbackContenidoIntentExplicito =
         registerForActivityResult(
@@ -61,21 +60,24 @@ class MainActivity : AppCompatActivity() {
         }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //con esto linkeamos una actividad
         setContentView(R.layout.activity_main)
         // Base de datos sqlite
         EBaseDeDatos.tablaEntrenador = ESqliteHelperEntrenador(
             this
         )
-        //aqui referenciamos al id del boton que tengamos en le main.xml
+
+
         val botonCicloVida = findViewById<Button>(R.id.btn_ciclo_vida)
-        botonCicloVida.setOnClickListener{
-            irActividad(ACicloVida::class.java)
-        }
+        botonCicloVida
+            .setOnClickListener {
+                irActividad(ACicloVida::class.java)
+            }
+
         val botonListView = findViewById<Button>(R.id.btn_ir_list_view)
-        botonListView.setOnClickListener{
-            irActividad(BListView::class.java)
-        }
+        botonListView
+            .setOnClickListener {
+                irActividad(BListView::class.java)
+            }
         val botonIntentImplicito = findViewById<Button>(
             R.id.btn_ir_intent_implicito)
         botonIntentImplicito
@@ -93,16 +95,26 @@ class MainActivity : AppCompatActivity() {
                 abrirActividadConParametros(
                     CIntentExplicitoParametros::class.java)
             }
+
         val botonSqlite = findViewById<Button>(R.id.btn_sqlite)
         botonSqlite
             .setOnClickListener {
                 irActividad(ECrudEntrenador::class.java)
             }
+
         val botonRView = findViewById<Button>(R.id.btn_revcycler_view)
         botonRView
             .setOnClickListener {
                 irActividad(FRecyclerView::class.java)
             }
+
+        val botonGoogleMaps = findViewById<Button>(R.id.btn_google_maps)
+        botonGoogleMaps
+            .setOnClickListener {
+                irActividad(GGoogleMapsActivity::class.java)
+            }
+
+
 
     } // Termina on Create
     fun abrirActividadConParametros(
@@ -116,9 +128,10 @@ class MainActivity : AppCompatActivity() {
 
         callbackContenidoIntentExplicito.launch(intentExplicito)
     }
-
-        fun irActividad(clase: Class<*>){
-            val intent = Intent(this, clase)
-            startActivity(intent)
-        }
+    fun irActividad(
+        clase: Class<*>
+    ){
+        val intent = Intent(this, clase)
+        startActivity(intent)
     }
+}

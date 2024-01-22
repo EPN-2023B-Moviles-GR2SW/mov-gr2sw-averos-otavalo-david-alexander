@@ -3,6 +3,7 @@ package com.app.exam_i
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.content.Intent
+import android.view.View
 import com.app.exam_i.model.Data
 import android.widget.Button
 import android.widget.EditText
@@ -38,8 +39,8 @@ class pantallaEditarCliente : AppCompatActivity() {
 
         if (positionClienteSelected != -1) {
             // Editar
-            btnCrear.isEnabled = false
-            btnActualizar.isEnabled = true
+            btnCrear.visibility = View.GONE
+            btnActualizar.visibility = View.VISIBLE
 
             inputCedulaCliente.setText(Data.datos[positionClienteSelected].cedula.toString())
             inputNumeroAfiliado.setText(Data.datos[positionClienteSelected].numeroAfiliado.toString())
@@ -79,8 +80,8 @@ class pantallaEditarCliente : AppCompatActivity() {
             }
         } else {
             // Crear
-            btnCrear.isEnabled = true
-            btnActualizar.isEnabled = false
+            btnCrear.visibility = View.VISIBLE
+            btnActualizar.visibility = View.GONE
             btnCrear.setOnClickListener {
                 try {
                     // Parseo seguro de la fecha

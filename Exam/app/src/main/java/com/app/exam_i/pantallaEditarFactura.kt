@@ -3,6 +3,7 @@ package com.app.exam_i
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.content.Intent
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.RadioButton
@@ -39,10 +40,10 @@ class pantallaEditarFactura : AppCompatActivity() {
 
         if (positionFacturaSelected != -1){
             // Editar
-            btnCrear.isEnabled = false
-            btnActualizar.isEnabled = true
+            btnCrear.visibility = View.GONE
+            btnActualizar.visibility = View.VISIBLE
 
-            inputCedulaCliente.setText(Data.datos[positionClienteSelected].facturas[positionFacturaSelected].cedulaCliente.toString())
+            inputCedulaCliente.setText(Data.datos[positionClienteSelected].facturas[positionFacturaSelected].cedulaCliente)
             inputFechaEmision.setText(Data.datos[positionClienteSelected].facturas[positionFacturaSelected].fechaEmision.toString())
             inputNumeroFactura.setText(Data.datos[positionClienteSelected].facturas[positionFacturaSelected].numeroFactura.toString())
             inputTotalPagar.setText(Data.datos[positionClienteSelected].facturas[positionFacturaSelected].totalAPagar.toString())
@@ -75,8 +76,8 @@ class pantallaEditarFactura : AppCompatActivity() {
             }
         }else{
             // Crear
-            btnCrear.isEnabled = true
-            btnActualizar.isEnabled = false
+            btnCrear.visibility = View.VISIBLE
+            btnActualizar.visibility = View.GONE
 
             btnCrear.setOnClickListener {
                 try {
