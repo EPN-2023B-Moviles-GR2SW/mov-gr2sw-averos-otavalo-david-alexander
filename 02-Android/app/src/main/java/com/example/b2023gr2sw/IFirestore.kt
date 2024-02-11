@@ -82,7 +82,7 @@ class IFirestore : AppCompatActivity() {
     } // FIN ONCREATE
 
 
-
+    // al momento de ejecutar esta consulta nos va a pedir un logcat, ya que no se puede hacer una consulta sin un logcat
     fun consultarIndiceCompuesto(
         adaptador: ArrayAdapter<ICities>
     ){
@@ -91,6 +91,7 @@ class IFirestore : AppCompatActivity() {
         limpiarArreglo()
         adaptador.notifyDataSetChanged()
         citiesRefUnico
+            //tiene 2 operadores where, uno para el capital y otro para la poblacion
             .whereEqualTo("capital", false)
             .whereLessThanOrEqualTo("population", 4000000)
             .orderBy("population", Query.Direction.DESCENDING)
@@ -107,11 +108,14 @@ class IFirestore : AppCompatActivity() {
     fun consultarCiudades(
         adaptador: ArrayAdapter<ICities>
     ){
+        //recordando a la variable global query, esta es la que se modifica dependiendo el cursos o no
+
         val db = Firebase.firestore
         val citiesRef = db.collection("cities")
             .orderBy("population")
             .limit(1)
         var tarea: Task<QuerySnapshot>? = null
+        //si es nula, se hace una consulta normal, si no, se hace una consulta con el cursor
         if (query == null) {
             tarea = citiesRef.get() // 1era vez
             limpiarArreglo()
@@ -120,6 +124,7 @@ class IFirestore : AppCompatActivity() {
             // consulta de la consulta anterior empezando en el nuevo documento
             tarea = query!!.get()
         }
+        //aqui cada que nos lleguen los datos, se guardara el query y se iran añadiendo al arreglo
         if (tarea != null) {
             tarea
                 .addOnSuccessListener { documentSnapshots ->
@@ -152,10 +157,12 @@ class IFirestore : AppCompatActivity() {
             .addOnCompleteListener { /* Si todo salio bien*/ }
             .addOnFailureListener { /* Si algo salio mal*/ }
     }
+
     fun guardarQuery(
         documentSnapshots: QuerySnapshot,
         refCities: Query
     ){
+        // si los datos que nos llegan son mayores a 0, se guardara el ultimo documento y se hara una nueva consulta
         if (documentSnapshots.size() > 0) {
             val ultimoDocumento = documentSnapshots
                 .documents[documentSnapshots.size() - 1]
