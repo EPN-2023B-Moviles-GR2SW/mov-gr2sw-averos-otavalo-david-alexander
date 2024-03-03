@@ -13,7 +13,7 @@ class AlarmyBD {
             Alarma(LocalTime.of(10, 30), true, "¡Despertar!", "Tono 2", false, 1, listOf("Sábado", "Domingo"), "Misión 2"),
             Alarma(LocalTime.of(11, 30), true, "Un nuevo dia", "Tono 3", true, 1, listOf("Miércoles"), "Misión 3"),
             Alarma(LocalTime.of(12, 30), true, "No deberias llegar tarde", "Tono 4", true, 1, listOf( "Miércoles", "Jueves", "Viernes", "Sábado"), "Misión 4"),
-            Alarma(LocalTime.of(13, 30), true, "", "Tono 5", false, 1, listOf("Lunes", "Martes", "Miércoles"), "Misión 5"),
+            Alarma(LocalTime.of(13, 30), true, "¡Despertar!", "Tono 5", false, 1, listOf("Domingo"), "Misión 5"),
         )
 
     }
