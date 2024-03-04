@@ -1,20 +1,22 @@
 package com.app.exam_i
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.widget.ArrayAdapter
-import androidx.activity.result.contract.ActivityResultContracts
-import com.app.exam_i.model.Cliente
-import com.app.exam_i.model.Data
+import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
+import android.os.Bundle
 import android.view.ContextMenu
 import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ListView
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
+import com.app.exam_i.model.Cliente
+import com.app.exam_i.model.Data
+import java.time.LocalDate
 
 
 class DashboardMain : AppCompatActivity() {
@@ -51,6 +53,57 @@ class DashboardMain : AppCompatActivity() {
             callbackContenido.launch(intent)
         }
         registerForContextMenu(listView)
+
+        val botonFirestore = findViewById<Button>(R.id.btn_intent_firestore)
+        botonFirestore
+            .setOnClickListener {
+                irActividad(IFirestore::class.java)
+            }
+    }
+    fun abrirActividadConParametros(
+        clase: Class<*>
+    ){
+        val intentExplicito = Intent(this, clase)
+        // Enviar parametros (solamente variables primitivas)
+        intentExplicito.putExtra("cedula", "1784467329")
+        intentExplicito.putExtra("numeroAfiliado", 23424)
+        intentExplicito.putExtra("altura", 1.60)
+        intentExplicito.putExtra("fechaCumpleanos", "2004-07-08")
+        intentExplicito.putExtra("sexo", false)
+
+
+        intentExplicito.putExtra("cliente",
+            Cliente(
+                "1784467329",
+                23424,
+                1.60,
+                LocalDate.of(2004, 7, 8),
+                false)
+        )
+
+        callbackContenidoIntentExplicito.launch(intentExplicito)
+    }
+    val callbackContenidoIntentExplicito =
+        registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()
+        ){
+                result ->
+            if(result.resultCode == Activity.RESULT_OK){
+                if(result.data != null){
+                    // Logica Negocio
+                    val data = result.data
+                    mostrarSnackbar(
+                        "${data?.getStringExtra("nombreModificado")}"
+                    )
+                }
+            }
+        }
+    fun mostrarSnackbar(texto:String){
+        Toast.makeText(
+            this,
+            texto,
+            Toast.LENGTH_LONG
+        ).show()
     }
     override fun onCreateContextMenu(
         menu: ContextMenu?,
@@ -104,5 +157,11 @@ class DashboardMain : AppCompatActivity() {
 
             else -> super.onContextItemSelected(item)
         }
+    }
+    fun irActividad(
+        clase: Class<*>
+    ){
+        val intent = Intent(this, clase)
+        startActivity(intent)
     }
 }

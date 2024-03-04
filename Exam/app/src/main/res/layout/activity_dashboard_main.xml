@@ -12,7 +12,7 @@
         android:id="@+id/btn_CrearCliente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Crear"
+        android:text="Crear BD"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.798"
@@ -30,5 +30,16 @@
         app:layout_constraintTop_toBottomOf="@+id/btn_CrearCliente"
         app:layout_constraintVertical_bias="1.0"
         />
+
+    <Button
+        android:id="@+id/btn_intent_firestore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:text="CRUD Firestore"
+        app:layout_constraintEnd_toStartOf="@+id/btn_CrearCliente"
+        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

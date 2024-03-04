@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Exam_I"
         tools:targetApi="31">
         <activity
+            android:name=".IFirestore"
+            android:exported="false" />
+        <activity
             android:name=".pantallaEditarFactura"
             android:exported="false" />
         <activity
